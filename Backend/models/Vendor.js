@@ -14,6 +14,14 @@ const vendorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  restaurant: {
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Restaurants",
+      },
+    ],
+  },
 });
 
 const Vendor = mongoose.model("Vendor", vendorSchema);

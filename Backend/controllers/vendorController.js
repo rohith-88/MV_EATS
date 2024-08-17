@@ -1,13 +1,15 @@
 const Vendor = require("../models/Vendor");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const dotenv = require("dotenv").config();
 
 const vendorRegister = async (req, res) => {
   const { username, email, password } = req.body;
+
   try {
     const vendorEmail = await Vendor.findOne({ email });
     if (vendorEmail) {
-      return res.status(400).json("Email already exists!!");
+      return res.status(400).json({ error: "Email already exists!!" });
     }
     const hashPassword = await bcrypt.hash(password, 13);
     const vendorData = new Vendor({
@@ -36,7 +38,20 @@ const vendorLogin = async (req, res) => {
     if (!(await bcrypt.compare(password, vendorData.password))) {
       return res.status(401).json({ error: "INCORRECT PASSWORD" });
     }
-    res.status(200).json({ message: "LOGIN SUCCESSFUL" });
+
+    jwt.sign(
+      { id: vendorData._id },
+      process.env.SECRET_KEY,
+      { expiresIn: "1h" },
+      (err, data) => {
+        if (err) throw err;
+        return res.status(200).json({
+          message: "LOGIN SUCCESSFUL",
+          token: data,
+        });
+      }
+    );
+
     console.log("vendor login complete");
   } catch (error) {
     console.error(error);
@@ -44,4 +59,26 @@ const vendorLogin = async (req, res) => {
   }
 };
 
-module.exports = { vendorRegister, vendorLogin };
+const getVendorDetails = async (req, res) => {
+  try {
+    const vendorId = req.vendorId;
+    if (!vendorId) {
+      res.status(401).json({ error: "INVALID TOKEN ERROR" });
+    }
+    const vendorData = await Vendor.findById(vendorId);
+    if (!vendorData) {
+      res.status(401).json({ error: "USER NOT FOUND ERROR" });
+    }
+
+    res.status(200).json({
+      username: vendorData.username,
+      email: vendorData.email,
+    });
+    console.log("Welcome ", vendorData.username);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "INTERNAL SERVER ERROR" });
+  }
+};
+
+module.exports = { vendorRegister, vendorLogin, getVendorDetails };
