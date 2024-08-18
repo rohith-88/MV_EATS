@@ -1,4 +1,5 @@
 const Vendor = require("../models/Vendor");
+const Restaurant = require("../models/Restaurant");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv").config();
@@ -62,10 +63,8 @@ const vendorLogin = async (req, res) => {
 const getVendorDetails = async (req, res) => {
   try {
     const vendorId = req.vendorId;
-    if (!vendorId) {
-      res.status(401).json({ error: "INVALID TOKEN ERROR" });
-    }
-    const vendorData = await Vendor.findById(vendorId);
+
+    const vendorData = await Vendor.findById(vendorId).populate("restaurant");
     if (!vendorData) {
       res.status(401).json({ error: "USER NOT FOUND ERROR" });
     }
@@ -73,6 +72,7 @@ const getVendorDetails = async (req, res) => {
     res.status(200).json({
       username: vendorData.username,
       email: vendorData.email,
+      restaurant: vendorData.restaurant,
     });
     console.log("Welcome ", vendorData.username);
   } catch (error) {

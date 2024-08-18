@@ -18,7 +18,7 @@ const vendorSchema = new mongoose.Schema({
     type: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Restaurants",
+        ref: "Restaurant",
       },
     ],
   },

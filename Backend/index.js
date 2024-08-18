@@ -3,6 +3,7 @@ const dotEnv = require("dotenv").config();
 const mongoose = require("mongoose");
 const vendorRoutes = require("./routes/vendorRoutes");
 const restaurantRoutes = require("./routes/restaurantRoutes");
+const productRoutes = require("./routes/productRoutes");
 // const bodyParser = require("body-parser");
 
 const app = express();
@@ -15,6 +16,7 @@ mongoose
 app.use(express.json());
 app.use("/vendor", vendorRoutes);
 app.use("/restaurant", restaurantRoutes);
+app.use("/product", productRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is here!");

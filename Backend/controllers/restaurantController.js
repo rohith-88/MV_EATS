@@ -44,4 +44,18 @@ const addRestaurant = async (req, res) => {
   }
 };
 
-module.exports = { addRestaurant };
+const getRestaurantData = async (req, res) => {
+  try {
+    const restaurantData = await Restaurant.findById(req.params.id).populate(
+      "product"
+    );
+    if (!restaurantData) {
+      res.status(401).json({ error: "USER DOES NOT EXIST" });
+    }
+    res.status(200).json({ restaurantData });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "INTERNAL SERVER ERROR" });
+  }
+};
+module.exports = { addRestaurant, getRestaurantData };

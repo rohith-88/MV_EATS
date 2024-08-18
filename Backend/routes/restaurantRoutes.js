@@ -13,4 +13,6 @@ router
     restaurantController.addRestaurant
   );
 
+router.use("/:id", verifyToken, restaurantController.getRestaurantData);
+
 module.exports = router;
