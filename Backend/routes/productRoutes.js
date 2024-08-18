@@ -12,4 +12,6 @@ router.use(
   productController.addProducts
 );
 
+router.use("/remove-product/:id", verifyToken, productController.deleteProduct);
+
 module.exports = router;

@@ -13,6 +13,12 @@ router
     restaurantController.addRestaurant
   );
 
+router.use(
+  "/remove-firm/:id",
+  verifyToken,
+  restaurantController.deleteRestaurant
+);
+
 router.use("/:id", verifyToken, restaurantController.getRestaurantData);
 
 module.exports = router;

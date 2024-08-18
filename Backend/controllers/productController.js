@@ -16,7 +16,7 @@ const addProducts = async (req, res) => {
     }
     const restaurant = await Restaurant.findById(restaurantId);
     if (!restaurant) {
-      res.status(401).json({ error: "USER DOES NOT EXIST" });
+      res.status(401).json({ error: "Restaurant not found" });
     }
 
     const productData = new Product({
@@ -38,4 +38,22 @@ const addProducts = async (req, res) => {
   }
 };
 
-module.exports = { addProducts };
+const deleteProduct = async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const deletedData = await Product.findByIdAndDelete(productId);
+    if (!deletedData) {
+      res.status(401).json({ error: "Product not found" });
+    }
+    const restaurant = await Restaurant.findById(deletedData.restaurant);
+    restaurant.product.pop(deletedData._id);
+    await restaurant.save();
+
+    res.status(200).json({ message: "Product deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "INTERNAL SERVER ERROR" });
+  }
+};
+
+module.exports = { addProducts, deleteProduct };
