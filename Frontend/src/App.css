@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: antiquewhite;
+  font-family: "Mukta", sans-serif;
+  box-sizing: border-box;
+}
+
+.navSection,
+.dashHeader {
+  /* border: 1px solid black; */
+  position: fixed;
+  top: 0;
+  height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(169, 94, 94, 0.951);
+  color: whitesmoke;
+  width: 100%;
+  font-size: xx-large;
+}
+
+.sideSection {
+  display: flex;
+  flex-direction: column;
+  height: 88vh;
+  width: 25%;
+  max-width: 200px;
+  background-color: bisque;
+  border-right: 1px solid brown;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sideSection button {
+  font-size: x-large;
+  text-align: center;
+  background-color: bisque;
+  padding: 1rem 0;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid brown;
+}
+
+.sideSection button:focus,
+.sideSection button:hover {
+  background-color: rgb(242, 202, 153);
+}
+.loginDisplay {
+  padding-top: 12vh;
+  display: flex;
+}
+
+.addFormContainer {
+  border: 1px solid brown;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-right: 0 10px;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.addFormContainer form {
+  background-color: #fff;
+  border-radius: 2rem;
+  max-width: 380px;
+  margin: auto;
+  margin-top: 4rem;
+  padding: 1.5rem;
+  font-size: large;
+}
+.addFormContainer form input {
+  margin-bottom: 1rem;
+  font-size: medium;
+  padding: 7px;
+  border-radius: 1rem;
+  border: 2px solid black;
+  margin-left: 1.5rem;
+}
+
+#firmImage {
+  border: none;
+}
+
+.cusines input,
+.foodCategory input {
+  margin-left: 1.5rem;
+}
+
+.firmDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* background-color: aliceblue; */
+  height: 88vh;
+  overflow-y: scroll;
+  /* position: relative; */
+}
+
+.firmCard {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  max-height: 300px;
+  background-color: burlywood;
+  border-radius: 2rem;
+  overflow: hidden;
+  margin: 1rem;
+  border: 1px solid brown;
+  padding-bottom: 10px;
+  transition-duration: 0.6s;
+  cursor: pointer;
+}
+.firmCard:hover {
+  scale: 1.1;
+}
+.firmCard h2 {
+  text-align: center;
+
+  margin: 0;
+}
+.firmCard h3 {
+  text-align: center;
+  margin: 0;
+}
+
+.addFirmBtn {
+  position: absolute;
+  z-index: 5;
+  bottom: 1rem;
+}
+.addFirmBtn button {
+  background-color: brown;
+  border: none;
+  font-size: x-large;
+  padding: 12px 12px;
+  color: blanchedalmond;
+  border-radius: 10px;
+}
+
+.productDisplay {
+  display: flex;
+  flex-direction: column;
+  /* background-color: azure; */
+  width: 100%;
+  padding: 0 10px;
+  height: 88vh;
+  overflow-y: scroll;
+}
+
+.firmInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  /* background-color: aquamarine; */
+  border: 1px solid brown;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+  height: 50%;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  padding: 10px;
+}
+.firmInfo img {
+  max-width: 500px;
+  width: 60%;
+  border-radius: 2rem;
+  /* margin: auto; */
+}
+
+.firmDesc {
+  text-align: center;
+  /* background-color: aliceblue; */
+  margin: auto;
+}
+.firmDesc h2 {
+  font-size: 32px;
+  margin-bottom: 0;
+  /* background-color: aqua; */
+}
+
+.wrapper {
+  color: rgb(211, 148, 65);
+  max-width: 350px;
+  width: 70vw;
+  background: antiquewhite;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  margin-top: 3rem;
+}
+.wrapper .title-text {
+  display: flex;
+  justify-content: center;
+  /* width: 200%; */
+}
+.wrapper .title {
+  /* width: 50%; */
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .slide-controls {
+  position: relative;
+  display: flex;
+  height: 50px;
+  /* width: 100%; */
+  margin: 0;
+  justify-content: space-between;
+  border: 1px solid brown;
+  border-radius: 15px;
+}
+.slide-controls .slide {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+.slide-controls label.signup {
+  color: #000;
+}
+.slide-controls .slider-tab {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 15px;
+  background: rgb(248, 176, 82);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.slide-controls input {
+  display: none;
+}
+#signup:checked ~ .slider-tab {
+  left: 50%;
+}
+#signup:checked ~ label.signup {
+  color: #fff;
+  cursor: default;
+  user-select: none;
+}
+#signup:checked ~ label.login {
+  color: rgb(211, 148, 65);
+}
+#login:checked ~ label.signup {
+  color: rgb(211, 148, 65);
+}
+#login:checked ~ label.login {
+  cursor: default;
+  user-select: none;
+}
+.wrapper .form-container {
+  width: 100%;
+  /* overflow: hidden; */
+}
+
+.form-inner form {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+}
+
+.form-inner form input {
+  height: 2rem;
+  padding-left: 0.6rem;
+  font-size: medium;
+  background-color: antiquewhite;
+  border: 1px solid brown;
+  border-radius: 1rem;
+  color: rgb(211, 148, 65);
+  outline: none;
+}
+.form-inner form input::placeholder {
+  color: brown;
+}
+.submitBtn button {
+  text-align: center;
+  width: 100%;
+  height: 2.5rem;
+  font-size: large;
+  color: rgb(252, 252, 252);
+  border: none;
+  border-radius: 1rem;
+  background-color: rgb(248, 176, 82);
+  cursor: pointer;
+}
