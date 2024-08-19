@@ -1,3 +1,5 @@
+import { MdDelete } from "react-icons/md";
+
 const restaData = {
   name: "Tandoori Palace",
   location: "123 Main Street, Mumbai",
@@ -9,7 +11,8 @@ const restaData = {
     {
       name: "Masala Dosa",
       price: 120,
-      image: "images/masala_dosa.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Veg"],
       type: "South Indian",
       bestseller: true,
@@ -18,7 +21,8 @@ const restaData = {
     {
       name: "Chicken Biryani",
       price: 200,
-      image: "images/chicken_biryani.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Non-Veg"],
       type: "North Indian",
       bestseller: true,
@@ -27,7 +31,8 @@ const restaData = {
     {
       name: "Paneer Butter Masala",
       price: 180,
-      image: "images/paneer_butter_masala.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Veg"],
       type: "North Indian",
       bestseller: false,
@@ -36,7 +41,8 @@ const restaData = {
     {
       name: "Veg Fried Rice",
       price: 150,
-      image: "images/veg_fried_rice.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Veg"],
       type: "Chinese",
       bestseller: false,
@@ -45,7 +51,8 @@ const restaData = {
     {
       name: "Gulab Jamun",
       price: 80,
-      image: "images/gulab_jamun.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Veg"],
       type: "Desserts",
       bestseller: true,
@@ -54,7 +61,8 @@ const restaData = {
     {
       name: "Chicken Manchurian",
       price: 160,
-      image: "images/chicken_manchurian.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Non-Veg"],
       type: "Chinese",
       bestseller: true,
@@ -63,7 +71,8 @@ const restaData = {
     {
       name: "Butter Chicken",
       price: 220,
-      image: "images/butter_chicken.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Non-Veg"],
       type: "North Indian",
       bestseller: true,
@@ -72,7 +81,8 @@ const restaData = {
     {
       name: "Rasgulla",
       price: 70,
-      image: "images/rasgulla.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Veg"],
       type: "Desserts",
       bestseller: false,
@@ -81,7 +91,8 @@ const restaData = {
     {
       name: "Hakka Noodles",
       price: 140,
-      image: "images/hakka_noodles.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Veg"],
       type: "Chinese",
       bestseller: false,
@@ -90,7 +101,8 @@ const restaData = {
     {
       name: "Mutton Rogan Josh",
       price: 250,
-      image: "images/mutton_rogan_josh.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Non-Veg"],
       type: "North Indian",
       bestseller: true,
@@ -99,7 +111,8 @@ const restaData = {
     {
       name: "Pesarattu",
       price: 100,
-      image: "images/pesarattu.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Veg"],
       type: "South Indian",
       bestseller: false,
@@ -108,7 +121,8 @@ const restaData = {
     {
       name: "Fish Curry",
       price: 210,
-      image: "images/fish_curry.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Non-Veg"],
       type: "South Indian",
       bestseller: true,
@@ -117,7 +131,8 @@ const restaData = {
     {
       name: "Samosa",
       price: 30,
-      image: "images/samosa.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Veg"],
       type: "North Indian",
       bestseller: false,
@@ -126,7 +141,8 @@ const restaData = {
     {
       name: "Ras Malai",
       price: 90,
-      image: "images/ras_malai.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Veg"],
       type: "Desserts",
       bestseller: true,
@@ -135,7 +151,8 @@ const restaData = {
     {
       name: "Chicken 65",
       price: 170,
-      image: "images/chicken_65.jpg",
+      image:
+        "https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=is&k=20&c=pq1F_9GCZ4rXRSrMJwrSKqu2xWMKtJvID_UH7P_DFvI=",
       category: ["Non-Veg"],
       type: "South Indian",
       bestseller: false,
@@ -161,18 +178,24 @@ const AllProducts = () => {
             <p>
               <b>Cusines: </b> {restaData.type.map((item) => item + " ")}
             </p>
+            <button className="deleteFirm">Delete Firm</button>
           </div>
         </div>
         <div className="productList">
           {restaData.product.map((prod) => (
             <div className="productCard">
               <img src={prod.image} />
-              <p className="title">{prod.name}</p>
-              <p className="price">{prod.price}</p>
-              <p className="category">{prod.category}</p>
-              <p className="bestseller">
-                {prod.bestseller ? "Bestseller" : ""}
-              </p>
+              <div className="prodDesc">
+                <p className="title">{prod.name}</p>
+                <p className="price">₹{prod.price}</p>
+                <p className="category">{prod.category}</p>
+                <p className="bestseller">
+                  {prod.bestseller ? "Bestseller" : ""}
+                </p>
+              </div>
+              <button>
+                <MdDelete />
+              </button>
             </div>
           ))}
         </div>
