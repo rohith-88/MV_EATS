@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { API_URL } from "../constants";
 
-const VendorLogin = () => {
+const VendorLogin = ({ loginStateHandler }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [error, setError] = useState("");
@@ -22,6 +22,7 @@ const VendorLogin = () => {
         setEmail("");
         setPassword("");
         window.localStorage.setItem("token", data.token);
+        loginStateHandler();
         alert(data.message);
       })
       .catch((err) => {

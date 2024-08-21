@@ -1,11 +1,17 @@
-const SideBar = () => {
+const SideBar = ({ loginStateHandler, restaurantHandler }) => {
   return (
     <div className="sideSection">
-      <button>Restaurants</button>
-
+      <button onClick={restaurantHandler}>Restaurants</button>
       <button>Orders</button>
       <button>Profile</button>
-      <button>Logout</button>
+      <button
+        onClick={() => {
+          window.localStorage.removeItem("token");
+          loginStateHandler();
+        }}
+      >
+        Logout
+      </button>
     </div>
   );
 };

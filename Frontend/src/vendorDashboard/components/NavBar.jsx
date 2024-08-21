@@ -3,7 +3,7 @@ import React from "react";
 const NavBar = () => {
   return (
     <div className="navSection">
-      <div>Vendor Dashboard</div>
+      <div>MV EATS</div>
     </div>
   );
 };

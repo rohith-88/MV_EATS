@@ -1,7 +1,13 @@
-const AddRestaurant = () => {
+const AddRestaurant = ({ setShowAddFirmForm }) => {
   return (
     <div className="addFormContainer">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+
+          setShowAddFirmForm();
+        }}
+      >
         <label>Restaurant Name</label>
         <br />
         <input type="text" placeholder="Enter Name" />
@@ -18,14 +24,14 @@ const AddRestaurant = () => {
           North Indian
           <input type="checkbox" id="Chinese" value="Chinese" />
           Chinese
-          <input type="checkbox" id="Desserts value=" Desserts />
+          <input type="checkbox" id="Desserts" value="Desserts" />
           Desserts
         </div>
         <label>Category</label>
         <div className="foodCategory">
           <input type="checkbox" id="Veg" value="Veg" />
           Veg
-          <input type="checkbox" id="Non-Veg value=" Non-Veg />
+          <input type="checkbox" id="Non-Veg" value="Non-Veg" />
           Non-Veg
         </div>
         <label>Offers Available</label>
@@ -37,7 +43,7 @@ const AddRestaurant = () => {
         <input type="file" name="image" id="firmImage" />
         <br />
         <div className="submitBtn">
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>

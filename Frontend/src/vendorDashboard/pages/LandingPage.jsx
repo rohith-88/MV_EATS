@@ -1,37 +1,45 @@
 import VendorSign from "../components/VendorSign";
 import LoginDisplay from "../components/LoginDisplay";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { API_URL } from "../components/constants";
 
 const LandingPage = () => {
   const [showDashboard, setShowDashboard] = useState();
   const [showAuthenticator, setShowAuthenticator] = useState();
   const [vendorData, setVendorData] = useState();
-  async function loginStateHandler() {
-    await fetch(`${API_URL}/vendor/dashboard`, {
-      method: "GET",
-      headers: { token: window.localStorage.getItem("token") },
-    })
-      .then(async (response) => {
-        if (!response.ok) {
-          throw Error("not logged in");
-        }
-        const vendorData = await response.json();
-        console.log(vendorData);
-        setShowDashboard(true);
-        setShowAuthenticator(false);
-      })
-      .catch((err) => {
-        setShowDashboard(false);
-        setShowAuthenticator(true);
+
+  //---------------------------------
+  const loginStateHandler = useCallback(async () => {
+    try {
+      const response = await fetch(`${API_URL}/vendor/dashboard`, {
+        method: "GET",
+        headers: { token: window.localStorage.getItem("token") },
       });
-  }
-  loginStateHandler();
+      if (!response.ok) throw new Error("not logged in");
+      const vendor = await response.json();
+      setVendorData(vendor);
+      setShowDashboard(true);
+      setShowAuthenticator(false);
+    } catch (err) {
+      setShowDashboard(false);
+      setShowAuthenticator(true);
+    }
+  }, []);
+  useEffect(() => {
+    loginStateHandler();
+  }, [loginStateHandler]);
 
   return (
     <>
-      {showDashboard && <LoginDisplay />}
-      {showAuthenticator && <VendorSign />}
+      {showDashboard && (
+        <LoginDisplay
+          loginStateHandler={loginStateHandler}
+          vendorData={vendorData}
+        />
+      )}
+      {showAuthenticator && (
+        <VendorSign loginStateHandler={loginStateHandler} />
+      )}
     </>
   );
 };

@@ -44,7 +44,7 @@ const vendorLogin = async (req, res) => {
       { id: vendorData._id },
       process.env.SECRET_KEY,
       {
-        expiresIn: "1h",
+        expiresIn: "1m",
       }
     );
 

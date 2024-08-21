@@ -3,7 +3,7 @@ import VendorRegister from "./forms/VendorRegister";
 import VendorLogin from "./forms/VendorLogin";
 import NavBar from "./NavBar";
 
-const VendorSign = () => {
+const VendorSign = ({ loginStateHandler }) => {
   const [isLogin, setIsLogin] = useState(true);
   return (
     <>
@@ -35,7 +35,11 @@ const VendorSign = () => {
             <div className="slider-tab"></div>
           </div>
           <div className="form-inner">
-            {isLogin ? <VendorLogin /> : <VendorRegister />}
+            {isLogin ? (
+              <VendorLogin loginStateHandler={loginStateHandler} />
+            ) : (
+              <VendorRegister />
+            )}
           </div>
         </div>
       </div>
