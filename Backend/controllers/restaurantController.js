@@ -9,17 +9,17 @@ const addRestaurant = async (req, res) => {
     const { name, location, offer, category, type } = req.body;
 
     if ([name, location].some((data) => data?.trim() === "")) {
-      res.status(401).json({ error: "ENTER ALL MANDATORY FIELDS" });
+      return res.status(401).json({ error: "ENTER ALL MANDATORY FIELDS" });
     }
     console.log(req.file);
     const imageURL = await uploadToCloudinary(req.file.path);
     if (!imageURL) {
-      res.status(500).json({ error: "INTERNAL SERVER ERROR" });
+      return res.status(500).json({ error: "INTERNAL SERVER ERROR" });
     }
 
     const vendor = await Vendor.findById(req.vendorId);
     if (!vendor) {
-      res.status(401).json({ error: "USER DOES NOT EXIST" });
+      return res.status(401).json({ error: "USER DOES NOT EXIST" });
     }
 
     const restaurantData = new Restaurant({
@@ -48,7 +48,7 @@ const getRestaurantData = async (req, res) => {
       "product"
     );
     if (!restaurantData) {
-      res.status(401).json({ error: "USER DOES NOT EXIST" });
+      return res.status(401).json({ error: "USER DOES NOT EXIST" });
     }
     res.status(200).json({ restaurantData });
   } catch (error) {
@@ -62,7 +62,7 @@ const deleteRestaurant = async (req, res) => {
     const restaurantId = req.params.id;
     const deletedData = await Restaurant.findByIdAndDelete(restaurantId);
     if (!deletedData) {
-      res.status(401).json({ error: "Restaurant not found" });
+      return res.status(401).json({ error: "Restaurant not found" });
     }
     const vendor = await Vendor.findById(deletedData.owner);
     vendor.restaurant.pop(deletedData._id);

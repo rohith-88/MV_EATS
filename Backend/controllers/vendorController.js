@@ -40,20 +40,19 @@ const vendorLogin = async (req, res) => {
       return res.status(401).json({ error: "INCORRECT PASSWORD" });
     }
 
-    jwt.sign(
+    const token = await jwt.sign(
       { id: vendorData._id },
       process.env.SECRET_KEY,
-      { expiresIn: "1h" },
-      (err, data) => {
-        if (err) throw err;
-        return res.status(200).json({
-          message: "LOGIN SUCCESSFUL",
-          token: data,
-        });
+      {
+        expiresIn: "1h",
       }
     );
 
-    console.log("vendor login complete");
+    // res.cookie("token", token, { httpOnly: true });
+    res.status(200).json({
+      message: "LOGIN SUCCESSFUL",
+      token: token,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "INTERNAL SERVER ERROR" });
@@ -66,7 +65,7 @@ const getVendorDetails = async (req, res) => {
 
     const vendorData = await Vendor.findById(vendorId).populate("restaurant");
     if (!vendorData) {
-      res.status(401).json({ error: "USER NOT FOUND ERROR" });
+      return res.status(401).json({ error: "USER NOT FOUND ERROR" });
     }
 
     res.status(200).json({
@@ -74,7 +73,6 @@ const getVendorDetails = async (req, res) => {
       email: vendorData.email,
       restaurant: vendorData.restaurant,
     });
-    console.log("Welcome ", vendorData.username);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "INTERNAL SERVER ERROR" });

@@ -1,7 +1,7 @@
-const DashHeader = () => {
+const DashHeader = ({ vendorName }) => {
   return (
     <div className="dashHeader">
-      <div className="company">Vendor Name</div>
+      <div className="company">{vendorName}</div>
     </div>
   );
 };

@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const vendorRoutes = require("./routes/vendorRoutes");
 const restaurantRoutes = require("./routes/restaurantRoutes");
 const productRoutes = require("./routes/productRoutes");
-// const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const app = express();
 
@@ -14,6 +15,8 @@ mongoose
   .catch((er) => console.log(er));
 
 app.use(express.json());
+app.use(cookieParser());
+app.use(cors());
 app.use("/vendor", vendorRoutes);
 app.use("/restaurant", restaurantRoutes);
 app.use("/product", productRoutes);

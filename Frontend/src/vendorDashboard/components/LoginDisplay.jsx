@@ -9,7 +9,6 @@ const LoginDisplay = () => {
     <div className="loginDisplay">
       <LoginHeader />
       <SideBar />
-      <AllProducts />
     </div>
   );
 };
